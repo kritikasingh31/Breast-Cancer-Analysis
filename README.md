@@ -1,7 +1,7 @@
 # ML Assignment - 2: Classification Model Comparison
 
 ## a. Problem Statement
-Implement classification models on one public classification dataset, evaluate them using Accuracy, AUC, Precision, Recall, F1 Score and MCC, compare their performance, and demonstrate the models through an interactive Streamlit application.
+The objective is to implement and compare multiple classification models on the same public classification dataset. The models are evaluated using Accuracy, AUC, Precision, Recall, F1 Score and Matthews Correlation Coefficient (MCC), followed by development and deployment of an interactive Streamlit application.
 
 ## b. Dataset Description
 **Dataset:** Breast Cancer Wisconsin (Diagnostic)  
@@ -17,10 +17,10 @@ Implement classification models on one public classification dataset, evaluate t
 This satisfies the assignment minimum of 12 features and 500 instances.
 
 ## c. GitHub Repository Link
-**Replace with your actual repository URL:** `https://github.com/<YOUR-USERNAME>/<YOUR-REPOSITORY>`
+**Replace with your actual repository URL:** `https://github.com/kritikasingh31/Breast-Cancer-Analysis.git`
 
 ## d. Models Used
-The assignment says "all 6 ML models" but its numbered list names only five models. This implementation uses the five named models plus **SVM** as the sixth model.
+The assignment requires six models but explicitly lists five named models. Therefore, Support Vector Machine (SVM) is used as the sixth model for the required six-model comparison.
 
 1. Logistic Regression
 2. Decision Tree Classifier
@@ -44,13 +44,13 @@ The assignment says "all 6 ML models" but its numbered list names only five mode
 
 | ML Model Name | Observation about model performance |
 |---|---|
-| Logistic Regression | Accuracy=0.9649; AUC=0.9960; F1=0.9726; MCC=0.9245. Compare with the winner using all six metrics and the same test set. |
-| Decision Tree | Accuracy=0.9211; AUC=0.9448; F1=0.9396; MCC=0.8299. Compare with the winner using all six metrics and the same test set. |
-| kNN | Accuracy=0.9561; AUC=0.9825; F1=0.9660; MCC=0.9058. Compare with the winner using all six metrics and the same test set. |
-| Naive Bayes | Accuracy=0.9386; AUC=0.9934; F1=0.9536; MCC=0.8715. Compare with the winner using all six metrics and the same test set. |
-| Random Forest | Accuracy=0.9737; AUC=0.9944; F1=0.9796; MCC=0.9442. Compare with the winner using all six metrics and the same test set. |
-| SVM | Accuracy=0.9825; AUC=0.9947; F1=0.9863; MCC=0.9626. Strongest overall combined performance in this experiment. ||
-| **Overall Winner** | **SVM** based on the combined F1/AUC/MCC comparison for this run. |
+| Logistic Regression | Achieved 96.49% accuracy and 0.9960 AUC. Precision was 0.9595, recall 0.9861, F1 0.9726 and MCC 0.9245, indicating strong overall performance. |
+| Decision Tree | Achieved 92.11% accuracy, the lowest among the six models. Although recall was high at 0.9722, precision was 0.9091 and MCC was 0.8299, indicating comparatively weaker performance. |
+| kNN | Achieved 95.61% accuracy and 0.9825 AUC. Precision was 0.9467, recall 0.9861, F1 0.9660 and MCC 0.9058, showing strong but not leading performance. |
+| Naive Bayes | Achieved 93.86% accuracy and 0.9934 AUC. It obtained 100% recall, but precision was 0.9114. F1 was 0.9536 and MCC 0.8715, indicating good but comparatively lower overall performance. |
+| Random Forest | Achieved 97.37% accuracy, 0.9944 AUC and 100% recall. F1 of 0.9796 and MCC of 0.9442 demonstrate excellent performance and improvement over a single Decision Tree. |
+| SVM | Achieved the highest accuracy (98.25%), precision (0.9730), F1 (0.9863) and MCC (0.9626), with 100% recall and 0.9947 AUC. It showed the strongest overall performance. ||
+| **Overall Winner** | **SVM** Support Vector Machine (SVM) is the overall winner. It achieved the highest accuracy (98.25%), precision (97.30%), F1 score (98.63%) and MCC (0.9626), together with 100% recall and an AUC of 0.9947. Based on the combined evaluation of the six metrics on the same test set, SVM provided the strongest overall classification performance. |
 
 ## Streamlit Features
 - Test CSV upload
@@ -60,6 +60,9 @@ The assignment says "all 6 ML models" but its numbered list names only five mode
 - Classification report
 - Comparison of all six models
 - Test-data preview
+
+## Live Streamlit App Link
+https://breast-cancer-analysis-idp9rdbcgz4x2nktemyqel.streamlit.app/
 
 ## Project Structure
 ```text
@@ -79,25 +82,3 @@ ml_assignment_2_solution/
     ├── random_forest.joblib
     └── svm.joblib
 ```
-
-## Run Locally
-```bash
-python -m venv .venv
-# Windows:
-.venv\Scripts\activate
-# Linux/macOS:
-source .venv/bin/activate
-
-pip install -r requirements.txt
-python train_models.py
-streamlit run app.py
-```
-
-## Deployment
-Push the complete folder to GitHub, then deploy `app.py` using Streamlit Community Cloud. Replace the GitHub and Streamlit URLs in your final PDF.
-
-## BITS Virtual Lab Screenshot
-Run the project in BITS Virtual Lab and include one genuine screenshot as required by the assignment.
-
-## Academic Integrity
-The assignment states that AI tools are allowed for learning support but not direct copy-paste submissions. Understand and customize this reference implementation, change/justify hyperparameters or UI where appropriate, and maintain your own GitHub commit history before submission.
